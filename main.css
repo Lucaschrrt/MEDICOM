@@ -1,0 +1,198 @@
+* {
+    font-family: 'Poppins', Helvetica, sans-serif;
+}
+
+/* Styles pour la page d'accueil */
+body.home-page {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    margin: 0 auto;
+    max-width: 1400px;
+}
+
+/* Styles pour l'en-tête */
+header {
+    background-color: #3a7bd5;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Styles pour la navigation */
+nav {
+    display: flex; /* Flexbox qui permet de mettre les éléments côte à côte */
+    justify-content: space-between; /* Les éléments sont espacés de manière égale */
+    background-color: #f8f9fa;
+    padding: 10px; /* Ajoute un peu d'espace autour des éléments */
+}
+
+nav a {
+    margin-right: 15px; /* Ajoute un peu d'espace entre les éléments */
+    text-decoration: none; /* Enlève le soulignement des liens */
+    color: #3a7bd5;
+}
+
+nav .log {
+    margin-left: auto; /* Place l'élément à droite */
+}
+
+main {
+    padding: 20px; /* Ajoute un peu d'espace autour des éléments */
+}
+
+footer {
+    background-color: #3a7bd5;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+footer p{
+    display: inline-block;
+    margin: 15px;
+    color: white;
+}
+
+h1 {
+    color: #e7e7e7;
+    font-family: 'Fredericka the Great', cursive;
+
+}
+
+
+#bvn, h2, h3, h4, h5, h6 {
+    color: #3a7bd5;
+    font-family: 'Fredericka the Great', cursive;
+
+}
+button {
+    background-color: #3a7bd5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5a9bd5;
+}
+
+#product {
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.product {
+    flex: 1 0 21%; /* This will make the product boxes responsive. Adjust the percentage based on how many products you want in a row. */
+    border: 1px solid #ddd;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+.product h3 {
+    margin: 10px 0;
+}
+
+.product p {
+    color: #666;
+}
+
+body.login-page{
+    margin: 0;
+    padding: 0;
+    background-image: url('https://wallpapers.com/images/hd/pharmacy-background-bomnaifdze6cde60.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin-left: 200px; /* Ajouter cette ligne pour décaler le contenu vers la droite */
+    }
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #333;
+}
+
+.login-form input,.register-form input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form button, .register-form button{
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+  table:hover {
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+  
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+tr:hover {
+    background-color: #ddd; /* Change la couleur de fond de la ligne de tableau lorsque la souris est dessus */
+}
+
+
+img {
+    width: 100px;
+    height: 100px;
+    transition: transform .5s; /* Ajoute une transition de 0.5s pour l'effet de zoom */
+}
+  img:hover {
+    transform: scale(1.1); /* Zoom de 10% au survol */
+}
+
+
