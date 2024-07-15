@@ -26,7 +26,7 @@ try {
             $username = $_POST['username_login'];
             $password = $_POST['password_login'];
             
-            // LOGIN
+            // LOGIN - CONNEXION
             $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
             $stmt->execute([$username]); 
             $user = $stmt->fetch(); 
@@ -36,13 +36,13 @@ try {
                 header('Location: home.php');
                 exit();
             } else {
-                echo "Une erreur est survenue, veuillez réessayer";
+                echo "L'identifiant ou le mot de passe est incorrect";
             }
         } elseif ($typedeform === 'Inscription') {
             $username = $_POST['username_signin'];
             $password = $_POST['password_signin'];   
             
-            // SIGN IN
+            // SIGNIN - INSCRIPTION
             $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
             $stmt->execute([$username]);
             $user = $stmt->fetch();
@@ -63,15 +63,12 @@ try {
                 } else {
                     echo "Une erreur est survenue, veuillez réessayer";
                 }
-
             } else {
                 echo "L'identifiant rentré existe déjà";
             }
         } else {
             echo "Une erreur est survenue, veuillez réessayer";
         }
-    } else {
-        echo "Une erreur est survenue, veuillez réessayer";
     }
 } catch (PDOException $e) {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
