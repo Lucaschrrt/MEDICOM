@@ -48,7 +48,7 @@
 
         <div class="product-container"> 
             <div class="product">
-                <img src="https://www.nmmedical.fr/media/wysiwyg/materiel-diagnostic.jpg" alt="Produit 1">
+                <img src="https://nmmedical.fr/cdn/shop/files/35616.L.jpg?crop=center&height=1024&v=1720631110&width=1024" alt="Produit 1">
                 <h3> Stethoscope </h3>
                 <p> 
                     Le stethoscope est un outil essentiel pour les professionnels de la santé. 
@@ -57,7 +57,7 @@
                 </p>
             </div>
             <div class="product">
-                <img src="https://www.nmmedical.fr/media/wysiwyg/urgence.jpg" alt="Produit 2">
+                <img src="https://nmmedical.fr/cdn/shop/files/40214.L.jpg?crop=center&height=1024&v=1720594695&width=1024" alt="Produit 2">
                 <h3> Trousse de secours </h3>
                 <p> 
                     La trousse de secours est un equipement indispensable pour les situations d'urgence. 
@@ -67,7 +67,7 @@
                 </p>
             </div>
             <div class="product">
-                <img src="https://www.nmmedical.fr/media/wysiwyg/protection-medicale.jpg" alt="Produit 3">
+                <img src="https://www.ccpartners.fr/564-medium_default/masque-chirurgical-en14683-type-1-bleu.jpg" alt="Produit 3">
                 <h3> Masques </h3>
                 <p> 
                     Les masques sont utilisés pour protéger le visage et les voies respiratoires des particules, 
@@ -77,7 +77,7 @@
                 </p>
             </div>
             <div class="product">
-                <img src="https://www.nmmedical.fr/media/wysiwyg/instru-nm.jpg" alt="Produit 4">
+                <img src="https://nmmedical.fr/cdn/shop/files/35398.L.jpg?crop=center&height=1024&v=1720593899&width=1024" alt="Produit 4">
                 <h3> Ciseaux </h3>
                 <p> 
                     Les ciseaux medicaux sont des instruments utilisés pour couper les tissus mous lors des 
@@ -87,7 +87,7 @@
                 </p>
             </div>
             <div class="product">
-                <img src="https://www.nmmedical.fr/media/catalog/product/cache/4/small_image/295x/17f82f742ffe127f42dca9de82fb58b1/medistore/images/m/47575.M.jpg" alt="Produit 5">
+                <img src="https://nmmedical.fr/cdn/shop/files/36906.L.jpg?crop=center&height=1024&v=1720593942&width=1024" alt="Produit 5">
                 <h3> Pince </h3>
                 <p> 
                     La pince de dissection est un instrument utilise pour saisir et manipuler les tissus lors 
@@ -96,7 +96,7 @@
                 </p>
             </div>
             <div class="product">
-                <img src="https://www.nmmedical.fr/media/catalog/product/cache/4/small_image/295x/17f82f742ffe127f42dca9de82fb58b1/medistore/images/m/36435.M.jpg" alt="Produit 6">
+                <img src="https://nmmedical.fr/cdn/shop/files/36435.L.jpg?crop=center&height=1024&v=1719996325&width=1024" alt="Produit 6">
                 <h3> Rouleau Papier </h3>
                 <p> 
                     Papier d'Essuyage Plus Tork résistant et absorbant afin d'éponger les liquides et d'essuyer 
@@ -104,7 +104,7 @@
                 </p>
             </div>
             <div class="product">
-                <img src="https://www.nmmedical.fr/media/catalog/product/cache/4/small_image/295x/17f82f742ffe127f42dca9de82fb58b1/medistore/images/m/A39298.M.jpg" alt="Produit 7">
+                <img src="https://nmmedical.fr/cdn/shop/files/5510.L.jpg?crop=center&height=1024&v=1719996110&width=1024" alt="Produit 7">
                 <h3> Pansements </h3>
                 <p> 
                     Pansements predecoupes enveloppe individuellement. Resistants a l'eau : support 
