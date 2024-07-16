@@ -33,7 +33,7 @@ try {
             
             if ($user && $password === $user['password']) {
                 $_SESSION['user_id'] = $user['id'];
-                header('Location: index.php');
+                header('Location: home.php');
                 exit();
             } else {
                 echo "L'identifiant ou le mot de passe est incorrect";
@@ -58,7 +58,7 @@ try {
             
                 if ($newUser) {
                     $_SESSION['user_id'] = $newUser['id'];
-                    header('Location: index.php');
+                    header('Location: home.php');
                     exit();
                 } else {
                     echo "Une erreur est survenue, veuillez réessayer";
@@ -85,7 +85,7 @@ try {
 <body class="login-page">
     <div class="login-container">
         <h2> Se connecter </h2>
-        <form action='connexion.php' method='post' class="login-form">
+        <form action='index.php' method='post' class="login-form">
             <input name="username_login" type="text" placeholder="Nom d'utilisateur" required>
             <input name="password_login" type="password" placeholder="Mot de Passe" required>
             <input name="typedeform" type="hidden" value="Connexion">
@@ -93,7 +93,7 @@ try {
         </form>
 
         <h2> Créer un compte </h2>
-        <form action='connexion.php' method='post' class="register-form">
+        <form action='index.php' method='post' class="register-form">
             <input name="username_signin" type="text" placeholder="Nom d'utilisateur" required>
             <input name="password_signin" type="password" placeholder="Mot de Passe" required>
             <input name="typedeform" type="hidden" value="Inscription">

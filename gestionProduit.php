@@ -1,7 +1,7 @@
 <?php
     session_start(); // Démarrage de la session
     if (!isset($_SESSION['user_id'])) { // Si l'utilisateur n'est pas connecté
-        header('Location: connexion.php'); // Redirection vers la page de connexion
+        header('Location: index.php'); // Redirection vers la page de connexion
         exit();
     }
 ?>
@@ -21,7 +21,7 @@
     </header>
 
     <nav>
-        <a href="index.php"> Accueil </a>
+        <a href="home.php"> Accueil </a>
         <a href="gestionProduit.php"> Gestion des Produits </a>
         <a href="logout.php" class="log"> Déconnexion </a>
     </nav>
