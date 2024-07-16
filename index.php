@@ -2,6 +2,8 @@
 
 session_start();
 
+
+
 // Config DB
 $host = 'localhost';
 $db   = 'medicomdb';
@@ -15,10 +17,6 @@ $opt = [
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
     PDO::ATTR_EMULATE_PREPARES   => false,
 ];
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
 try {
     $pdo = new PDO($dsn, $user, $pass, $opt); 
