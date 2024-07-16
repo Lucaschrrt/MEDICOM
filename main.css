@@ -100,7 +100,7 @@ button:hover {
 }
 
 .product {
-    flex: 1 0 21%; /* This will make the product boxes responsive. Adjust the percentage based on how many products you want in a row. */
+    flex: 1 0 21%; 
     border: 1px solid #ddd;
     padding: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -129,7 +129,7 @@ body.login-page{
     align-items: center;
     justify-content: flex-start;
     height: 100vh;
-    margin-left: 200px; /* Ajouter cette ligne pour décaler le contenu vers la droite */
+    margin-left: 200px; 
     }
 
 .login-container {
@@ -182,17 +182,17 @@ th {
     color: white;
 }
 tr:hover {
-    background-color: #ddd; /* Change la couleur de fond de la ligne de tableau lorsque la souris est dessus */
+    background-color: #ddd; 
 }
 
 
 img {
     width: 100px;
     height: 100px;
-    transition: transform .5s; /* Ajoute une transition de 0.5s pour l'effet de zoom */
+    transition: transform .5s; 
 }
   img:hover {
-    transform: scale(1.1); /* Zoom de 10% au survol */
+    transform: scale(1.1); 
 }
 
 
