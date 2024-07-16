@@ -22,7 +22,7 @@
     </header>
 
     <nav>
-        <a href="home.php"> Accueil </a>
+        <a href="index.php"> Accueil </a>
         <a href="gestionProduit.php"> Gestion des Produits </a>
         <a href="logout.php" class="log"> Déconnexion </a>
     </nav>
