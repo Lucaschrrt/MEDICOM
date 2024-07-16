@@ -36,7 +36,7 @@ Pour la mise en place et à l'accès de la base de donnée, nous devons ouvrir *
 
 Les identifiants permettant de se connecter sont : 
 - username = root
-- password = root
+- password = 
 
 <br>
 
