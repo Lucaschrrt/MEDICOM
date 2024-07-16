@@ -33,7 +33,7 @@ try {
             
             if ($user && $password === $user['password']) {
                 $_SESSION['user_id'] = $user['id'];
-                header('Location: home.php');
+                header('Location: index.php');
                 exit();
             } else {
                 echo "L'identifiant ou le mot de passe est incorrect";
@@ -58,7 +58,7 @@ try {
             
                 if ($newUser) {
                     $_SESSION['user_id'] = $newUser['id'];
-                    header('Location: home.php');
+                    header('Location: index.php');
                     exit();
                 } else {
                     echo "Une erreur est survenue, veuillez réessayer";
