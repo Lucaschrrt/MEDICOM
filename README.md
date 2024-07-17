@@ -36,7 +36,7 @@ Pour la mise en place et à l'accès de la base de donnée, nous devons ouvrir *
 
 Les identifiants permettant de se connecter sont : 
 - username = root
-- password = 
+- password = root
 
 <br>
 
@@ -44,7 +44,7 @@ Les identifiants permettant de se connecter sont :
 
 ![Schema Base de donnee](sandbox/img/MEDICOM_DATABASE.png)
 
-Derrière ce site web repose une base de donnée ordonnée et simple d'utilisation permettant une utlisation efficace au sein du code. La base de donnée contient 2 tables disticntes 
+Derrière ce site web repose une base de donnée ordonnée et simple d'utilisation permettant une utlisation efficace au sein du code. La base de données contient 2 tables disticntes :
 
 > **users**
 
@@ -53,23 +53,96 @@ La table "users" permet de stocker les informations de connexion des utilisateur
 
 - Elle permet notamment durant le remplissage du formulaire lors d'une **"Connexion"** d'aller chercher les informations de connexion sur cette table et vérifier si le nom d'utilisateur existe et que le mot de passe rentré est bien attribué à ce nom d'utilisateur.
 
-- Elle permet également lors du remplissage du formulaire d'**"Inscription"** d'envoyer les données dans cette table et ainsi enregistrer ces nouvelles informations dans la base de données pour une évetuelle connexion plus tard. 
+- Elle permet également lors du remplissage du formulaire d'**Inscription** d'envoyer les données dans cette table et ainsi enregistrer ces nouvelles informations dans la base de données pour une évetuelle connexion plus tard. 
 <br> <br>
 
  > **médicaments**
 
  La table "médicaments" permet de stocker toutes les informations concernant les médicaments enregistrés dans la base de données. Elle contient les informations conçernant : les noms, le prix, la quantité, la date d'ajout ainsi que la date de modification de tous les produits.
 
- Cette table est notamment utilisée pour un cas principalement : 
+ Cette table est notamment utilisée pour deux cas principalement : 
 
- - **Pour la gestion des produits sur le dashboard** pour ainsi gérer via le site de modifier, supprimer, les informations concernant le stock pour chaque médicaments. 
- <br>
+ - **Pour la gestion des produits** pour pouvoir gérer directement via le site les informations concernant le stock pour chaque médicaments. 
+
+ - **Pour la présentation des médicaments sur le dashboard** pour permettre d'afficher tous les médicaments présents dans la base de données ainsi que toutes les informations correspondantes à chaque produits.
+ <br> <br>
+
+# DÉPLOIEMENT DE L'APPLICATION SUR UNE MACHINE VIRTUELLE ET + ACCÈS SSH DEPUIS L'EXTÉRIEUR
+
+## Configuration d'une VM Ubuntu sur Oracle Cloud pour Déployer une Application PHP MySQL avec Apache2
+
+### Étape 1 : Création de la VM et accès via SSH 
+
+Étape 1 : Création d'une VM sur Oracle Cloud
+
+Pour pouvoir déployer l'application, il faut créer une Virtual Machine (VM) en se connectant à un compte Oracle sur Oracle Cloud grâce à [ce lien](https://www.oracle.com/cloud/free/).
+
+Après s'être connecté sur Oracle Cloud, il faut pour cela se connecter sur le tableau de bord et **créer une nouvelle Instance**.
+
+Dans la configuration de l'instance, il faut pour cela choisir une image de base LINUX (Dans notre cas, nous avons choisi en "Always Free" l'image Canonical Ubuntu v22.04)
+
+IMPORTANT : Pendant la configuration de l'Instance, un avertissement vous conseillera fortement de créer l'intsance sans un accès SSH comprenant une clé publique et une clé privée.
 
 
+Après avoir associé la clé publique avec l'instance, pour pouvoir avoir accès à la VM, vous pouvez utiliser le logiciel PuTTY qui consiste à pouvoir avoir accès en SSH via une paire de clé à n'importe quelle machine Pour le téléchargement, cliquez sur [ce lien](https://www.putty.org/).
 
+### Étape 2 : Configuration de la VM :
 
+Après avoir réussi à créer l'instance sur Oracle Cloud, attribuer une paire de clé pour un accès SSH à la machine, nous allons donc installer tout ce dont on a besoin pour le déploiement :
 
+#### Installation de Apache2, PHP, MySQL Server et les modules nécessaires
 
+Commandes de base pour mettre à jour la VM :
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+```
+
+Installation et activation de Apache2 :
+
+```bash
+sudo apt install apache2 -y
+sudo systemctl start apache2 sudo systemctl enable apache2
+```
+Installation de PHP :
+
+```bash
+sudo apt install php libapache2-mod-php php-mysql -y
+```
+
+Installation et sécurisation de MySQL Server :
+
+```bash
+sudo apt install mysql-server -y
+sudo mysql_secure_installation 
+```
+
+Cette dernière commande permet de sécuriser **l'installation et les accès de MySQL** directement sur le serveur Ubuntu où l'application est déployée. Elle permet de parametrer l'application en fonction de certains droits / accès pour la base de données. Elle est un bon moyen de **conteneuriser les infos sensibles** dans l'environnement où l'application est déployée.
+
+Après avoir installé MySQL, nous devons désormais ajouter un utilisateur "admin" qui va permettre une connexion avec tous les droits tout en empêchant la connexion avec "root".
+
+Connexion à MySQL avec le compte root :
+```bash
+sudo mysql -u root -p
+```
+
+Création de la Base de Données : 
+```sql
+CREATE DATABASE nom_de_votre_base_de_donnees;
+```
+Création d'un utilisateur admin :
+
+```sql
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'mot_de_passe';
+```
+
+Affectation des droits au compte admin :
+```sql
+GRANT ALL PRIVILEGES ON nom_de_votre_base_de_donnees.* TO 'admin'@'localhost';
+
+FLUSH PRIVILEGES;
+```
 
 
 
@@ -79,8 +152,6 @@ La table "users" permet de stocker les informations de connexion des utilisateur
 
 # CONCLUSION
 
-
 La mise en place de ce site web a été conçue pour la gestion de stock et de commandes pour l'organisation fictive MEDICOM et est une des nombreuses façons d'optimiser la gestion de stock pour l'entrprise à travers ce site pour y informer les utilisateurs connectés.
 
 La conception de la base de donnée derrière a été pensé pour une gestion simple et fiable, permettant une maintenance facile et solide pour une évolution majeure de l'entreprise.
-

@@ -37,8 +37,6 @@
     
     <?php
 
-    // Pour l'authentification utiliser Patherne mvc
-
     // Config DB
     $host = getenv('DBHOST');
     $db   = getenv('DBNAME');
