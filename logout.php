@@ -1,7 +1,7 @@
 <?php
-    session_start(); // Démarrage de la session
+    session_start(); 
     $_SESSION = array(); // Réinitialisation du tableau de session
-    session_destroy(); // Destruction de la session
-    header('Location: index.php'); // Redirection vers la page de connexion
+    session_destroy(); 
+    header('Location: index.php');
     exit();
 ?>
