@@ -2,10 +2,10 @@
 
 session_start();
 
-// Config DB
-$host = '84.235.232.142';
-$db   = 'medicom';
-$user = 'ubuntu';
+// Config DB LOCAL
+$host = getenv('DBHOST_LOC');
+$db   = getenv('DB_LOC');
+$user = getenv('DBUSER_LOC');
 $pass = '';
 $charset = 'utf8mb4';
 
