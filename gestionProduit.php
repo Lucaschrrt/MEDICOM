@@ -40,10 +40,10 @@
     // Pour l'authentification utiliser Patherne mvc
 
     // Config DB
-    $host = 'localhost';
-    $db   = 'medicomdb';
-    $user = 'root';
-    $pass = '';
+    $host = getenv('DBHOST');
+    $db   = getenv('DBNAME');
+    $user = getenv('DBUSER');
+    $pass = getenv('DBPASS');
     $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
