@@ -42,7 +42,7 @@ Les identifiants permettant de se connecter sont :
 
 # LA BASE DE DONNÉES
 
-![Schema Base de donnee](sandbox/img/MEDICOM_DATABASE.png)
+![MEDICOM_DATABASE](img/MEDICOM_DATABASE.png)
 
 Derrière ce site web repose une base de donnée ordonnée et simple d'utilisation permettant une utlisation efficace au sein du code. La base de données contient 2 tables disticntes :
 
@@ -152,9 +152,14 @@ Tout d'abord, l'installation de Git avec la commande :
 sudo apt install git
 ```
 
-Pour initialiser un dépot sur la VM : (choisir un répertoire qui pourra aller récupérer les fichiers depuis Git) :
+Pour initialiser un dépot, càd choisir un répertoire qui pourra aller récupérer les fichiers depuis Git :
 ```bash
 git init
+```
+
+Vous pouvez à tout moment vérifier l'état d'un dépot en se plaçant dans ce dernier avec la commande :
+```bash
+git status
 ```
 
 Pour configurer un remote :
@@ -206,8 +211,10 @@ git push -u origin main (pour la première fois sinon)
 git push
 ```
 
+<br>
 
-#### Déployer les fichiers de l'application :
+### Déployer les fichiers de l'application :
+---
 
 Modification du fichier de configuration de l'application avec la commande suivante :
 ```bash

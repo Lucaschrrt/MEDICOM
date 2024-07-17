@@ -36,7 +36,6 @@
     </p>
     
     <?php
-
     // Config DB
     $host = getenv('DBHOST');
     $db   = getenv('DBNAME');
@@ -95,9 +94,6 @@
 
     echo "</table>";
     ?>
-
-
-
 
     <br><br><br><br>
 
