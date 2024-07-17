@@ -3,9 +3,9 @@
 session_start();
 
 // Config DB
-$host = 'localhost';
-$db   = 'medicomdb';
-$user = 'root';
+$host = '84.235.232.142';
+$db   = 'medicom';
+$user = 'ubuntu';
 $pass = '';
 $charset = 'utf8mb4';
 
