@@ -2,11 +2,12 @@
 
 session_start();
 
-// Config DB LOCAL
-$host = getenv('DBHOST_LOC');
-$db   = getenv('DB_LOC');
-$user = getenv('DBUSER_LOC');
-$pass = '';
+// Config DB
+$host = getenv('DBHOST');
+$db   = getenv('DBNAME');
+$user = getenv('DBUSER');
+$pass = getenv('DBPASS');
+
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
