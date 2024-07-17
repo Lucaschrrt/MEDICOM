@@ -142,9 +142,102 @@ Affectation des droits au compte admin :
 GRANT ALL PRIVILEGES ON nom_de_votre_base_de_donnees.* TO 'admin'@'localhost';
 
 FLUSH PRIVILEGES;
+EXIT;
+```
+
+#### Utilisation de Git pour synchroniser les fichiers de l'application :
+
+Tout d'abord, l'installation de Git avec la commande :
+```bash
+sudo apt install git
+```
+
+Pour initialiser un dépot sur la VM : (choisir un répertoire qui pourra aller récupérer les fichiers depuis Git) :
+```bash
+git init
+```
+
+Pour configurer un remote :
+```bash
+git remote add origin <url>
+```
+
+Il existe 2 "états" pour un fichier sur Git et il existe 3 "espaces" sur git la où peut se situer un fichier, on peut le savoir avec la commande :
+
+```bash
+git status
+```
+RAJOUTER PHOTO !!!!
+
+Les 3 espaces sont sont : 
+- le dépot local : 
+- l'index :
+- le dépot de travail :
+
+Les 2 états de fichier sont :
+- non suivi (untracked) : ce fichier n'a pas encore 
+- suivi (tracked) : ce fichier est suivi par Git 
+
+#### Pour travailler sur son dépot Git :
+
+D'abord, si des modifications ont eu lieu sur Git, vous ne pourrez pas "push" vos modifications de fichier si vous n'avez pas la version du remote :
+
+```bash
+git pull
+```
+
+Après avoir récupérer la version du remote, et que vous avez faits des modifications sur un fichier, ajoutez-les dans l'index avec la commande :
+
+```bash
+git add <fichier>
+```
+
+Après avoir rajouté tous les fichiers modifiés, pour les enregistrer dans l'historique utilisez la commande :
+
+```bash
+git commit -m "Message de commit (first commit par exemple)"
+```
+
+Après avoir "commit" tous les fichiers souhaités, vous pouvez finalement les envoyés sur le remote avec la commande :
+
+```bash
+git push -u origin main (pour la première fois sinon)
+
+git push
 ```
 
 
+#### Déployer les fichiers de l'application :
+
+Modification du fichier de configuration de l'application avec la commande suivante :
+```bash
+sudo nano /etc/apache2/sites-available/votre_site.conf
+```
+Puis, y rentrer ces informations :
+```apache 
+<VirtualHost *:80> 
+    ServerAdmin webmaster@localhost 
+    DocumentRoot /var/www/html/votre_application
+
+   <Directory /var/www/html/votre_application>
+       Options Indexes FollowSymLinks
+       AllowOverride All
+       Require all granted
+   </Directory>
+
+   ErrorLog ${APACHE_LOG_DIR}/error.log
+   CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost> 
+```
+
+Activation du site et redémarrage de Apache2 :
+
+```bash
+sudo a2ensite votre_site.conf
+sudo systemctl restart apache2
+```
+
+Accès depuis l'IP publique à votre application (IP publique trouvée depuis l'instance créée sur Oracle Cloud) 
 
 
 
