@@ -151,23 +151,25 @@
             public $date_ajout;
             public $date_expiration;
             public $description;
+            public $photo;
 
-            public function __construct($nom, $prix, $quantite, $date_ajout, $date_expiration, $description) {
+            public function __construct($photo, $nom, $prix, $quantite, $date_ajout, $date_expiration, $description, ) {
                 $this->nom = $nom;
                 $this->prix = $prix;
                 $this->quantite = $quantite;
                 $this->date_ajout = $date_ajout;
                 $this->date_expiration = $date_expiration;
                 $this->description = $description; 
+                $this->photo = $photo;
             }
         }
 
         // Récupération des médicaments
-        $stmt = $pdo->query('SELECT nom, prix, quantite, date_ajout, date_expiration, description FROM medicaments'); // Ajout du champ photo à la requête SQL
+        $stmt = $pdo->query('SELECT nom, prix, quantite, date_ajout, date_expiration, description, photo FROM medicaments'); // Ajout du champ photo à la requête SQL
         $medicaments = [];
         while ($row = $stmt->fetch())
         {
-            $medicaments[] = new Medicament($row['nom'], $row['prix'], $row['quantite'], $row['date_ajout'], $row['date_expiration'], $row['description']); // Ajout du champ photo à la création de l'objet Medicament
+            $medicaments[] = new Medicament($row['photo'], $row['nom'], $row['prix'], $row['quantite'], $row['date_ajout'], $row['date_expiration'], $row['description']); // Ajout du champ photo à la création de l'objet Medicament
         }
     ?>
 
@@ -175,10 +177,11 @@
 
     <?php
         echo "<table>";
-        echo "<tr> <th>Nom</th> <th>Prix</th> <th>Quantité</th> <th>Date d'ajout</th> <th>Date d'expiration</th> <th>Description</th> </tr>"; // Ajout d'une colonne pour la photo
+        echo "<tr> <th>Photo</th> <th>Nom</th> <th>Prix</th> <th>Quantité</th> <th>Date d'ajout</th> <th>Date d'expiration</th> <th>Description</th> </tr>"; // Ajout d'une colonne pour la photo
 
         foreach ($medicaments as $medicament) {
             echo "<tr>";
+            echo "<td>" . $medicament->photo . "</td>";
             echo "<td>" . $medicament->nom . "</td>";
             echo "<td>" . $medicament->prix . " €</td>";
             echo "<td>" . $medicament->quantite . "</td>";

@@ -1,9 +1,16 @@
 # INFORMATION PROF ACCÈS APPLICATION :
+
+BINOME : **EMRE SANAL**
+
 IP Publique : [84.235.232.142](http://84.235.232.142/)
 
 Accès pour la connexion au site : 
 - Username : *root*
 - Password : *root*
+
+Lien pour Github : [MEDICOM](https://github.com/Lucaschrrt/MEDICOM.git)
+
+<br>
 
 ![Preuve_Déploiement](./img/readme/preuve.deploiement.png)
 
@@ -316,3 +323,5 @@ sudo mysql medicom < medicomdb.sql
 La mise en place de ce site web a été conçue pour la gestion de stock et de commandes pour l'organisation fictive MEDICOM et est une des nombreuses façons d'optimiser la gestion de stock pour l'entrprise à travers ce site pour y informer les utilisateurs connectés.
 
 La conception de la base de donnée derrière a été pensé pour une gestion simple et fiable, permettant une maintenance facile et solide pour une évolution majeure de l'entreprise.
+
+Travail réalisée en groupe entre **Lucas CHARRAT** et **Emre SANAL**.
