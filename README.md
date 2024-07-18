@@ -255,14 +255,25 @@ Pour les fichiers suivis, il existe 3 catégories de fichiers qui sont :
 - **Modifié (Modified) :** Dès lors qu'une modification est réalisée sur un fichié dit "Unmodified", il sera dans la catégorie "modifié" des fichiers suivis par Git.
 - **(Staged) :** La catégorie "temporaire" où se situera un fichier après le moment où le fichier est ajoutée avec la commande (Git add <nom_du_fichier>)
 
----
-#### Pour travailler sur son dépot Git :
 
-D'abord, si des modifications ont eu lieu sur Git, vous ne pourrez pas "push" vos modifications de fichier si vous n'avez pas la version du remote :
+## Pour travailler sur son dépot Git :
+
+Prenons l'exemple pour cette VM, pour faire un lien direct entre un répertoire présent dans la VM et le Github où se situe l'application à déployer pour la première fois, on utilise la commande :
+
+```bash
+git clone <lien accès github> 
+git clone https://github.com/Lucaschrrt/MEDICOM.git
+```
+
+Après avoir "cloner" le répertoire dans lesquels se trouvent désormais tous les fichiers que constituent votre application, vous pouver finalement utilisez la commande en se plaçant à l'endroit où vous avez cloné et taper cette commande :
 
 ```bash
 git pull
 ```
+Ensuite, si des modifications ont eu lieu sur Git, vous ne pourrez plus "push" vos modifications de fichier si vous n'avez pas la version exacte du remote. 
+Si vous n'avez pas la même version retaper la commande **"git pull"**.
+
+<br>
 
 Après avoir récupérer la version du remote, et que vous avez faits des modifications sur un fichier, ajoutez-les dans l'index avec la commande :
 
@@ -282,6 +293,20 @@ Après avoir "commit" tous les fichiers souhaités, vous pouvez finalement les e
 git push -u origin main (pour la première fois sinon)
 
 git push
+```
+
+<br>
+
+Enfin, après avoir cloné et "tiré" les informations depuis Git avec les commandes **"git clone"** et **"git pull"**, si la base de données SQL est également présente. Vous pouvez importer la base de données directement sur MySQL de la VM pour pouvoir exploiter les informations à l'intérieur avec la commande suivante :
+
+```bash
+sudo mysql <nom_de_la_DB_déjà_créée> < <nom_du_fichier_DB.sql>
+```
+
+Pour prendre l'exemple du site de MEDICOM, nous avons utilisé la commande suivante :
+
+```bash
+sudo mysql medicom < medicomdb.sql
 ```
 
 <br>
