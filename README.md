@@ -7,7 +7,7 @@ Accès pour la connexion au site :
 
 ![Preuve_Déploiement](./img/readme/preuve.deploiement.png)
 
-<br> <br>
+<br> 
 
 # SOMMAIRE
 
@@ -29,7 +29,7 @@ Accès pour la connexion au site :
 
 - CONCLUSION
 
-<br> <br>
+<br> 
 
 # INTRODUCTION 
 
