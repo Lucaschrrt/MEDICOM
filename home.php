@@ -112,7 +112,7 @@
                 </p>
             </div>
             <div class="product">
-                <img src="https://www.nmmedical.fr/media/catalog/product/cache/4/small_image/295x/17f82f742ffe127f42dca9de82fb58b1/medistore/images/m/A35268.M.jpg" alt="Produit 8">
+                <img src="https://nmmedical.fr/cdn/shop/files/50702.L.jpg?crop=center&height=1024&v=1718870824&width=1024" alt="Produit 8">
                 <h3> Sérum physiologique </h3>
                 <p> 
                     Solution physiologique stérile permettant le nettoyage nasal et oculaire des nourrissons, 
@@ -149,26 +149,24 @@
             public $quantite;
             public $date_ajout;
             public $date_expiration;
-            public $photo;
             public $description;
 
-            public function __construct($nom, $prix, $quantite, $date_ajout, $date_expiration, $photo, $description) {
+            public function __construct($nom, $prix, $quantite, $date_ajout, $date_expiration, $description) {
                 $this->nom = $nom;
                 $this->prix = $prix;
                 $this->quantite = $quantite;
                 $this->date_ajout = $date_ajout;
                 $this->date_expiration = $date_expiration;
-                $this->photo = $photo;
                 $this->description = $description; 
             }
         }
 
         // Récupération des médicaments
-        $stmt = $pdo->query('SELECT nom, prix, quantite, date_ajout, date_expiration, photo, description FROM medicaments'); // Ajout du champ photo à la requête SQL
+        $stmt = $pdo->query('SELECT nom, prix, quantite, date_ajout, date_expiration, description FROM medicaments'); // Ajout du champ photo à la requête SQL
         $medicaments = [];
         while ($row = $stmt->fetch())
         {
-            $medicaments[] = new Medicament($row['nom'], $row['prix'], $row['quantite'], $row['date_ajout'], $row['date_expiration'], $row['photo'], $row['description']); // Ajout du champ photo à la création de l'objet Medicament
+            $medicaments[] = new Medicament($row['nom'], $row['prix'], $row['quantite'], $row['date_ajout'], $row['date_expiration'], $row['description']); // Ajout du champ photo à la création de l'objet Medicament
         }
     ?>
 
@@ -176,7 +174,7 @@
 
     <?php
         echo "<table>";
-        echo "<tr> <th>Nom</th> <th>Prix</th> <th>Quantité</th> <th>Date d'ajout</th> <th>Date d'expiration</th> <th>Description</th> <th>Photo</th> </tr>"; // Ajout d'une colonne pour la photo
+        echo "<tr> <th>Nom</th> <th>Prix</th> <th>Quantité</th> <th>Date d'ajout</th> <th>Date d'expiration</th> <th>Description</th> </tr>"; // Ajout d'une colonne pour la photo
 
         foreach ($medicaments as $medicament) {
             echo "<tr>";
@@ -186,7 +184,6 @@
             echo "<td>" . $medicament->date_ajout . "</td>";
             echo "<td>" . $medicament->date_expiration . "</td>";
             echo "<td>" . $medicament->description . "</td>";
-            echo "<td><img src='" . $medicament->photo . "' alt='Photo du médicament' /></td>";
             echo "</tr>";
         }
 

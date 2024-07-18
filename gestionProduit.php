@@ -29,10 +29,8 @@
     <h1 id="bvn"> Gestion des Produits </h1>
     <p>
         Voici notre tableau de bord, conçu pour vous fournir des informations détaillées sur nos produits. 
-        Il vous permet de voir quels produits sont encore en stock, ceux qui sont en rupture, 
-        ainsi que les produits les plus et les moins vendus. De plus, il vous alerte lorsque 
-        le stock d'un produit est inférieur à 10. C'est un outil indispensable pour rester informé de 
-        l'état de notre inventaire.
+        Il vous permet de voir quels produits sont encore en stock, ceux qui sont en rupture. C'est un outil 
+        indispensable pour rester informé de l'état de notre inventaire.
     </p>
     
     <?php
@@ -58,28 +56,26 @@
         public $quantite;
         public $date_ajout;
         public $date_expiration;
-        public $photo;
     
-        public function __construct($nom, $prix, $quantite, $date_ajout, $date_expiration, $photo) {
+        public function __construct($nom, $prix, $quantite, $date_ajout, $date_expiration) {
             $this->nom = $nom;
             $this->prix = $prix;
             $this->quantite = $quantite;
             $this->date_ajout = $date_ajout;
             $this->date_expiration = $date_expiration;
-            $this->photo = $photo;
         }
     }
 
     // Récupération des médicaments
-    $stmt = $pdo->query('SELECT nom, prix, quantite, date_ajout, date_expiration, photo FROM medicaments');
+    $stmt = $pdo->query('SELECT nom, prix, quantite, date_ajout, date_expiration FROM medicaments');
     $medicaments = [];
     while ($row = $stmt->fetch())
     {
-        $medicaments[] = new Medicament($row['nom'], $row['prix'], $row['quantite'], $row['date_ajout'], $row['date_expiration'], $row['photo']);
+        $medicaments[] = new Medicament($row['nom'], $row['prix'], $row['quantite'], $row['date_ajout'], $row['date_expiration']);
     }
 
     echo "<table>";
-    echo "<tr> <th>Nom</th> <th>Prix</th> <th>Quantité</th> <th>Date d'ajout</th> <th>Date d'expiration</th> <th>Photo</th> </tr>";
+    echo "<tr> <th>Nom</th> <th>Prix</th> <th>Quantité</th> <th>Date d'ajout</th> <th>Date d'expiration</th> </tr>";
 
     foreach ($medicaments as $medicament) {
         echo "<tr>";
@@ -88,7 +84,6 @@
         echo "<td>" . $medicament->quantite . "</td>";
         echo "<td>" . $medicament->date_ajout . "</td>";
         echo "<td>" . $medicament->date_expiration . "</td>";
-        echo "<td>" . $medicament->photo . "</td>";
         echo "</tr>";
     }
 
