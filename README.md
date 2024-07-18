@@ -1,10 +1,19 @@
+# INFORMATION PROF ACCÈS APPLICATION :
+IP Publique : [84.235.232.142](http://84.235.232.142/)
+
+Accès pour la connexion au site : 
+- Username : *root*
+- Password : *root*
+
+![Preuve_Déploiement](./img/readme/preuve.deploiement.png)
+
+<br> <br>
+
 # SOMMAIRE
 
 - INTRODUCTION        
-    - Prérequis
+    - Prérequis en LOCAL
     - Installation des logiciels 
-
-- IMPORTANT
 
 - LA BASE DE DONNÉES
     - Présentation détaillée des tables
@@ -76,14 +85,17 @@ Après s'être connecté sur Oracle Cloud, il faut pour cela se connecter sur le
 
 Dans la configuration de l'instance, il faut pour cela choisir une image de base LINUX (Dans notre cas, nous avons choisi en "Always Free" l'image Canonical Ubuntu v22.04)
 
-IMPORTANT : Pendant la configuration de l'Instance, un avertissement vous conseillera fortement de créer l'intsance sans un accès SSH comprenant une clé publique et une clé privée.
+**IMPORTANT :** Pendant la configuration de l'Instance, un avertissement vous conseillera fortement de créer l'intsance sans un accès SSH comprenant une clé publique et une clé privée.
 
+Après avoir finalisé l'installation de l'instance, vous devez arriver sur cette page, voici un exemple :
+
+![Oracle Instance](./img/readme/Oracle_exemple.png)
 
 Après avoir associé la clé publique avec l'instance, pour pouvoir avoir accès à la VM, vous pouvez utiliser le logiciel PuTTY qui consiste à pouvoir avoir accès en SSH via une paire de clé à n'importe quelle machine Pour le téléchargement, cliquez sur [ce lien](https://www.putty.org/).
 
 Pour l'utilisation de PuTTY, vous devez entrer 'myuser'@'IP PUBLIQUE' avec le port 22 et bien rajouter dans **Connection/SSH/Auth/Credentials** et rajouter dans "Private key file for authentification" votre **clé privée** associée à la clé publique.
 
-![MEDICOM_DATABASE](./img/readme/PuTTY.png)
+![PuTTY Interface](./img/readme/PuTTY.png)
 
 ### Étape 2 : Configuration de la VM :
 
@@ -149,13 +161,17 @@ Que ce soit en local sur votre ordinateur comme sur la  VM, vous devez renseigne
 
 - Dans **/etc/apache2/conf-available/**, créer un fichier **env-vars.conf**.
 
-- L'équivalent en local sur XAMPP est dans **C:/xampp/papache/conf/httpd.conf**.
+- L'équivalent en local sur XAMPP est dans **C:/xampp/apache/conf/httpd.conf**.
 
-Dans ces fichiers-là, veuilez renseigner les ***variables d'environnement Apache*** entrées dans votre code : 
+Dans ces fichiers-là, veuilez renseigner les ***variables d'environnement Apache*** entrées dans votre code avec la fonction **"getenv"**: 
 
 ![CONFIG_DB_VAR_ENVIRONNEMENT](./img/readme/CONFIG_DB.png)
 
+Suite à cela, vous devez aller chercher ces variables d'environnement et les assigner avec la commande **"SetEnv"** dans les deux fichers de configurations cités au-dessus :
 
+![CONFIG_DB_VAR_ENVIRONNEMENT_FICHIERSCONF](./img/readme/CONFIG_DB_FICHIERSCONF.png)
+
+<br>
 
 Modification du fichier de configuration de l'application avec la commande suivante :
 ```bash
@@ -222,7 +238,7 @@ Pour configurer un remote :
 git remote add origin <url>
 ```
 
-Il existe 2 "états" pour un fichier sur Git et il existe 3 "espaces" sur git la où peut se situer un fichier, on peut le savoir avec la commande :
+Il existe 2 "états" pour un fichier sur Git et il existe 3 "catégories" sur git où peut se situer un fichier, on peut le savoir avec la commande :
 
 ```bash
 git status
@@ -231,15 +247,16 @@ git status
 
 ![MEDICOM_DATABASE](./img/readme/TRACKED_FILE.png)
 
-Les 3 espaces sont sont : 
-- le dépot local : 
-- l'index :
-- le dépot de travail :
-
 Les 2 états de fichier sont :
-- non suivi (untracked) : ce fichier n'est pas encore suivi par Git
-- suivi (tracked/staged) : ce fichier est suivi par Git 
+- **non suivi (Untracked) :** le fichier n'est pas encore suivi par Git.
+- **suivi (Tracked) :** le fichier est suivi par Git (pour qu'un fichier soit suivi par Git, on utilsera la commande "Git add <nom_du_fichier>").
 
+Pour les fichiers suivis, il existe 3 catégories de fichiers qui sont :
+- **Pas modifié (Unmodified) :** La catégorie où le fichier se trouvera immédiatement après la premier "commit" sur un fichié dejà suivi par Git.
+- **Modifié (Modified) :** Dès lors qu'une modification est réalisée sur un fichié dit "Unmodified", il sera dans la catégorie "modifié" des fichiers suivis par Git.
+- **(Staged) :** La catégorie "temporaire" où se situera un fichier après le moment où le fichier est ajoutée avec la commande (Git add <nom_du_fichier>)
+
+---
 #### Pour travailler sur son dépot Git :
 
 D'abord, si des modifications ont eu lieu sur Git, vous ne pourrez pas "push" vos modifications de fichier si vous n'avez pas la version du remote :
@@ -276,10 +293,3 @@ La mise en place de ce site web a été conçue pour la gestion de stock et de c
 
 La conception de la base de donnée derrière a été pensé pour une gestion simple et fiable, permettant une maintenance facile et solide pour une évolution majeure de l'entreprise.
 
-
-
-## Important 
-
-Les identifiants permettant de se connecter sont ***uniquement*** (sauf si inscription) : 
-- username = root
-- password = root
