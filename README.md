@@ -32,19 +32,17 @@ Suivez les instructions qui vous sont montrés durant l'installation et cliquer 
 Pour la mise en place et à l'accès de la base de donnée, nous devons ouvrir ***le panneau de contrôle de XAMPP*** et sélectionner les boutons "Start" pour **Apache** et **MySQL**. 
 <br> 
 
-## Important 
+![MEDICOM_DATABASE](./img/readme/XAMPP_PANNEL.png)
 
-Les identifiants permettant de se connecter sont : 
-- username = root
-- password = root
 
 <br>
 
 # LA BASE DE DONNÉES
 
-![MEDICOM_DATABASE](img/MEDICOM_DATABASE.png)
-
 Derrière ce site web repose une base de donnée ordonnée et simple d'utilisation permettant une utlisation efficace au sein du code. La base de données contient 2 tables disticntes :
+
+![MEDICOM_DATABASE](./img/readme/MEDICOM_DATABASE.png)
+
 
 > **users**
 
@@ -67,13 +65,10 @@ La table "users" permet de stocker les informations de connexion des utilisateur
  - **Pour la présentation des médicaments sur le dashboard** pour permettre d'afficher tous les médicaments présents dans la base de données ainsi que toutes les informations correspondantes à chaque produits.
  <br> <br>
 
-# DÉPLOIEMENT DE L'APPLICATION SUR UNE MACHINE VIRTUELLE ET + ACCÈS SSH DEPUIS L'EXTÉRIEUR
+# DÉPLOIEMENT DE L'APPLICATION SUR UNE MACHINE VIRTUELLE + ACCÈS SSH DEPUIS L'EXTÉRIEUR
 
-## Configuration d'une VM Ubuntu sur Oracle Cloud pour Déployer une Application PHP MySQL avec Apache2
-
-### Étape 1 : Création de la VM et accès via SSH 
-
-Étape 1 : Création d'une VM sur Oracle Cloud
+Étape 1 : Création de la VM et accès via SSH 
+--- 
 
 Pour pouvoir déployer l'application, il faut créer une Virtual Machine (VM) en se connectant à un compte Oracle sur Oracle Cloud grâce à [ce lien](https://www.oracle.com/cloud/free/).
 
@@ -255,3 +250,11 @@ Accès depuis l'IP publique à votre application (IP publique trouvée depuis l'
 La mise en place de ce site web a été conçue pour la gestion de stock et de commandes pour l'organisation fictive MEDICOM et est une des nombreuses façons d'optimiser la gestion de stock pour l'entrprise à travers ce site pour y informer les utilisateurs connectés.
 
 La conception de la base de donnée derrière a été pensé pour une gestion simple et fiable, permettant une maintenance facile et solide pour une évolution majeure de l'entreprise.
+
+
+
+## Important 
+
+Les identifiants permettant de se connecter sont ***uniquement*** (sauf si inscription) : 
+- username = root
+- password = root
