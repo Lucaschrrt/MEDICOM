@@ -11,6 +11,7 @@
 <html>
 <head>
     <title> MEDICOM | Accueil </title>
+    <link rel="icon" href="./img/favicon.ico">
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">

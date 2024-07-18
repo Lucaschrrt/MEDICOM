@@ -85,6 +85,7 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> MEDICOM | Connexion </title>
+    <link rel="icon" href="./img/favicon.ico">
     <link rel="stylesheet" href="main.css">
 </head>
 
