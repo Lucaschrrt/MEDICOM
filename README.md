@@ -13,10 +13,19 @@ Accès pour la connexion au site :
 
 - INTRODUCTION        
     - Prérequis en LOCAL
-    - Installation des logiciels 
+    - Installation des logiciels en LOCAL
 
 - LA BASE DE DONNÉES
     - Présentation détaillée des tables
+
+- DÉPLOIEMENT DE L'APPLICATION SUR UNE MACHINE VIRTUELLE + ACCÈS SSH DEPUIS L'EXTÉRIEUR
+    - Création de la VM et accès via SSH 
+    - Configuration de la VM
+    - Installation des logiciels et des modules nécessaires
+    - Fichiers de configuration à modifier sur la VM
+
+- Utilisation de Git pour synchroniser les fichiers de l'application
+    - Pour travailler sur son dépot Git
 
 - CONCLUSION
 
@@ -76,7 +85,7 @@ La table "users" permet de stocker les informations de connexion des utilisateur
 
 # DÉPLOIEMENT DE L'APPLICATION SUR UNE MACHINE VIRTUELLE + ACCÈS SSH DEPUIS L'EXTÉRIEUR
 
-Étape 1 : Création de la VM et accès via SSH 
+### Étape 1 : Création de la VM et accès via SSH 
 --- 
 
 Pour pouvoir déployer l'application, il faut créer une Virtual Machine (VM) en se connectant à un compte Oracle sur Oracle Cloud grâce à [ce lien](https://www.oracle.com/cloud/free/).
@@ -98,6 +107,7 @@ Pour l'utilisation de PuTTY, vous devez entrer 'myuser'@'IP PUBLIQUE' avec le po
 ![PuTTY Interface](./img/readme/PuTTY.png)
 
 ### Étape 2 : Configuration de la VM :
+---
 
 Après avoir réussi à créer l'instance sur Oracle Cloud, attribuer une paire de clé pour un accès SSH à la machine, nous allons donc installer tout ce dont on a besoin pour le déploiement :
 
@@ -155,6 +165,7 @@ GRANT ALL PRIVILEGES ON nom_de_votre_base_de_donnees.* TO 'admin'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 ```
+
 #### Fichiers de configuration à modifier sur la VM :
 ---
 Que ce soit en local sur votre ordinateur comme sur la  VM, vous devez renseignez et modifier des informations sur certains fichiers de configuration :
@@ -204,19 +215,7 @@ sudo systemctl restart apache2
 Accès depuis l'IP publique à votre application (IP publique trouvée depuis l'instance créée sur Oracle Cloud) 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-#### Utilisation de Git pour synchroniser les fichiers de l'application :
+# Utilisation de Git pour synchroniser les fichiers de l'application :
 
 Tout d'abord, l'installation de Git avec la commande :
 ```bash
@@ -292,4 +291,3 @@ git push
 La mise en place de ce site web a été conçue pour la gestion de stock et de commandes pour l'organisation fictive MEDICOM et est une des nombreuses façons d'optimiser la gestion de stock pour l'entrprise à travers ce site pour y informer les utilisateurs connectés.
 
 La conception de la base de donnée derrière a été pensé pour une gestion simple et fiable, permettant une maintenance facile et solide pour une évolution majeure de l'entreprise.
-
