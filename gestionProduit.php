@@ -18,7 +18,7 @@
 
 <body class="home-page">
     <header>
-        <h1> Pharmacie MEDICOM </h1>
+        <h1> MEDICOM </h1>
     </header>
 
     <nav>
