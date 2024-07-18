@@ -1,7 +1,7 @@
 <?php
-    session_start(); // Démarrage de la session
-    if (!isset($_SESSION['user_id'])) { // Si l'utilisateur n'est pas connecté
-        header('Location: index.php'); // Redirection vers la page de connexion
+    session_start();
+    if (!isset($_SESSION['user_id'])) { 
+        header('Location: index.php'); 
         exit();
     }
 ?>

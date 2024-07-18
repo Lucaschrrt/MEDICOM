@@ -1,8 +1,8 @@
 <?php
     // Vérification si l'utilisateur est connecté
-    session_start(); // Démarrage de la session
-    if (!isset($_SESSION['user_id'])) { // Si l'utilisateur n'est pas connecté
-        header('Location: index.php'); // Redirection vers la page de connexion
+    session_start(); 
+    if (!isset($_SESSION['user_id'])) {
+        header('Location: index.php');
         exit();
     }
 ?>
@@ -42,7 +42,8 @@
             et découvrez comment nous pouvons vous aider à prendre soin de votre santé. </p>
     </main>
 
-    <section id="product"> <!-- La présentation produits est en dur mais le gestionnaire de produit est dynamique -->
+    <!-- La présentation produits est en dur mais le gestionnaire de produit est dynamique -->
+    <section id="product">
         <h2> Présentation générale </h2>
         <p> Voici quelques-uns des produits que nous offrons à nos clients : </p>
 
