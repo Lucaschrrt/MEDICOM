@@ -81,12 +81,16 @@ IMPORTANT : Pendant la configuration de l'Instance, un avertissement vous consei
 
 Après avoir associé la clé publique avec l'instance, pour pouvoir avoir accès à la VM, vous pouvez utiliser le logiciel PuTTY qui consiste à pouvoir avoir accès en SSH via une paire de clé à n'importe quelle machine Pour le téléchargement, cliquez sur [ce lien](https://www.putty.org/).
 
+Pour l'utilisation de PuTTY, vous devez entrer 'myuser'@'IP PUBLIQUE' avec le port 22 et bien rajouter dans **Connection/SSH/Auth/Credentials** et rajouter dans "Private key file for authentification" votre **clé privée** associée à la clé publique.
+
+![MEDICOM_DATABASE](./img/readme/PuTTY.png)
+
 ### Étape 2 : Configuration de la VM :
 
 Après avoir réussi à créer l'instance sur Oracle Cloud, attribuer une paire de clé pour un accès SSH à la machine, nous allons donc installer tout ce dont on a besoin pour le déploiement :
 
-#### Installation de Apache2, PHP, MySQL Server et les modules nécessaires
-
+#### Installation de Apache2, PHP, MySQL Server et les modules nécessaires :
+---
 Commandes de base pour mettre à jour la VM :
 
 ```bash
@@ -139,77 +143,19 @@ GRANT ALL PRIVILEGES ON nom_de_votre_base_de_donnees.* TO 'admin'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
 ```
-
-#### Utilisation de Git pour synchroniser les fichiers de l'application :
-
-Tout d'abord, l'installation de Git avec la commande :
-```bash
-sudo apt install git
-```
-
-Pour initialiser un dépot, càd choisir un répertoire qui pourra aller récupérer les fichiers depuis Git :
-```bash
-git init
-```
-
-Vous pouvez à tout moment vérifier l'état d'un dépot en se plaçant dans ce dernier avec la commande :
-```bash
-git status
-```
-
-Pour configurer un remote :
-```bash
-git remote add origin <url>
-```
-
-Il existe 2 "états" pour un fichier sur Git et il existe 3 "espaces" sur git la où peut se situer un fichier, on peut le savoir avec la commande :
-
-```bash
-git status
-```
-RAJOUTER PHOTO !!!!
-
-Les 3 espaces sont sont : 
-- le dépot local : 
-- l'index :
-- le dépot de travail :
-
-Les 2 états de fichier sont :
-- non suivi (untracked) : ce fichier n'a pas encore 
-- suivi (tracked) : ce fichier est suivi par Git 
-
-#### Pour travailler sur son dépot Git :
-
-D'abord, si des modifications ont eu lieu sur Git, vous ne pourrez pas "push" vos modifications de fichier si vous n'avez pas la version du remote :
-
-```bash
-git pull
-```
-
-Après avoir récupérer la version du remote, et que vous avez faits des modifications sur un fichier, ajoutez-les dans l'index avec la commande :
-
-```bash
-git add <fichier>
-```
-
-Après avoir rajouté tous les fichiers modifiés, pour les enregistrer dans l'historique utilisez la commande :
-
-```bash
-git commit -m "Message de commit (first commit par exemple)"
-```
-
-Après avoir "commit" tous les fichiers souhaités, vous pouvez finalement les envoyés sur le remote avec la commande :
-
-```bash
-git push -u origin main (pour la première fois sinon)
-
-git push
-```
-
-<br>
-
-### Déployer les fichiers de l'application :
+#### Fichiers de configuration à modifier sur la VM :
 ---
+Que ce soit en local sur votre ordinateur comme sur la  VM, vous devez renseignez et modifier des informations sur certains fichiers de configuration :
+
+- Dans **/etc/apache2/conf-available/**, créer un fichier **env-vars.conf**.
+
+- L'équivalent en local sur XAMPP est dans **C:/xampp/papache/conf/httpd.conf**.
+
+Dans ces fichiers-là, veuilez renseigner les ***variables d'environnement Apache*** entrées dans votre code : 
+
+![CONFIG_DB_VAR_ENVIRONNEMENT](./img/readme/CONFIG_DB.png)
+
+
 
 Modification du fichier de configuration de l'application avec la commande suivante :
 ```bash
@@ -242,6 +188,85 @@ sudo systemctl restart apache2
 Accès depuis l'IP publique à votre application (IP publique trouvée depuis l'instance créée sur Oracle Cloud) 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+#### Utilisation de Git pour synchroniser les fichiers de l'application :
+
+Tout d'abord, l'installation de Git avec la commande :
+```bash
+sudo apt install git
+```
+
+Pour initialiser un dépot, càd choisir un répertoire qui pourra aller récupérer les fichiers depuis Git :
+```bash
+git init
+```
+
+Vous pouvez à tout moment vérifier l'état d'un dépot en se plaçant dans ce dernier avec la commande :
+```bash
+git status
+```
+
+Pour configurer un remote :
+```bash
+git remote add origin <url>
+```
+
+Il existe 2 "états" pour un fichier sur Git et il existe 3 "espaces" sur git la où peut se situer un fichier, on peut le savoir avec la commande :
+
+```bash
+git status
+```
+<br>
+
+![MEDICOM_DATABASE](./img/readme/TRACKED_FILE.png)
+
+Les 3 espaces sont sont : 
+- le dépot local : 
+- l'index :
+- le dépot de travail :
+
+Les 2 états de fichier sont :
+- non suivi (untracked) : ce fichier n'est pas encore suivi par Git
+- suivi (tracked/staged) : ce fichier est suivi par Git 
+
+#### Pour travailler sur son dépot Git :
+
+D'abord, si des modifications ont eu lieu sur Git, vous ne pourrez pas "push" vos modifications de fichier si vous n'avez pas la version du remote :
+
+```bash
+git pull
+```
+
+Après avoir récupérer la version du remote, et que vous avez faits des modifications sur un fichier, ajoutez-les dans l'index avec la commande :
+
+```bash
+git add <fichier>
+```
+
+Après avoir rajouté tous les fichiers modifiés, pour les enregistrer dans l'historique utilisez la commande :
+
+```bash
+git commit -m "Message de commit (first commit par exemple)"
+```
+
+Après avoir "commit" tous les fichiers souhaités, vous pouvez finalement les envoyés sur le remote avec la commande :
+
+```bash
+git push -u origin main (pour la première fois sinon)
+
+git push
+```
 
 <br>
 
