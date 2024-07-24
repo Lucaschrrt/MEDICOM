@@ -1,10 +1,9 @@
 <?php
-    // Vérification si l'utilisateur est connecté
-    session_start(); 
-    if (!isset($_SESSION['user_id'])) {
-        header('Location: index.php');
-        exit();
-    }
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header('Location: index.php');
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +42,6 @@
             et découvrez comment nous pouvons vous aider à prendre soin de votre santé. </p>
     </main>
 
-    <!-- La présentation produits est en dur mais le gestionnaire de produit est dynamique -->
     <section id="product">
         <h2> Présentation générale </h2>
         <p> Voici quelques-uns des produits que nous offrons à nos clients : </p>
@@ -146,31 +144,31 @@
         $pdo = new PDO($dsn, $user, $pass, $opt);
 
         class Medicament {
+            public $photo;
             public $nom;
             public $prix;
             public $quantite;
             public $date_ajout;
             public $date_expiration;
             public $description;
-            public $photo;
 
-            public function __construct($photo, $nom, $prix, $quantite, $date_ajout, $date_expiration, $description, ) {
+            public function __construct($photo, $nom, $prix, $quantite, $date_ajout, $date_expiration, $description) {
+                $this->photo = $photo;
                 $this->nom = $nom;
                 $this->prix = $prix;
                 $this->quantite = $quantite;
                 $this->date_ajout = $date_ajout;
                 $this->date_expiration = $date_expiration;
-                $this->description = $description; 
-                $this->photo = $photo;
+                $this->description = $description;
             }
         }
 
         // Récupération des médicaments
-        $stmt = $pdo->query('SELECT nom, prix, quantite, date_ajout, date_expiration, description, photo FROM medicaments'); // Ajout du champ photo à la requête SQL
+        $stmt = $pdo->query('SELECT photo, nom, prix, quantite, date_ajout, date_expiration, description FROM medicaments');
         $medicaments = [];
         while ($row = $stmt->fetch())
         {
-            $medicaments[] = new Medicament($row['photo'], $row['nom'], $row['prix'], $row['quantite'], $row['date_ajout'], $row['date_expiration'], $row['description']); // Ajout du champ photo à la création de l'objet Medicament
+            $medicaments[] = new Medicament($row['photo'], $row['nom'], $row['prix'], $row['quantite'], $row['date_ajout'], $row['date_expiration'], $row['description']);
         }
     ?>
 
@@ -178,11 +176,11 @@
 
     <?php
         echo "<table>";
-        echo "<tr> <th>Photo</th> <th>Nom</th> <th>Prix</th> <th>Quantité</th> <th>Date d'ajout</th> <th>Date d'expiration</th> <th>Description</th> </tr>"; // Ajout d'une colonne pour la photo
+        echo "<tr> <th>Photo</th> <th>Nom</th> <th>Prix</th> <th>Quantité</th> <th>Date d'ajout</th> <th>Date d'expiration</th> <th>Description</th> </tr>";
 
         foreach ($medicaments as $medicament) {
             echo "<tr>";
-            echo "<td>" . $medicament->photo . "</td>";
+            echo "<td><img src='" . $medicament->photo . "' alt='" . $medicament->nom . "'></td>";
             echo "<td>" . $medicament->nom . "</td>";
             echo "<td>" . $medicament->prix . " €</td>";
             echo "<td>" . $medicament->quantite . "</td>";
@@ -201,7 +199,7 @@
         <p> Pharmacie MEDICOM : </p>
         <p> 12 Rue de Gerland </p>
         <p> ISITECH, Lyon, 69007</p>
-        <p> Telephone: 091567890</p>
+        <p> Téléphone: 091567890</p>
         <p> Courriel: EmreLucas@mail.fr </p>
         <div> &copy; 2024 MEDICOM </div>
     </footer>
